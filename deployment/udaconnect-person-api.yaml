@@ -9,7 +9,7 @@ spec:
   - name: "5001"
     port: 5001
     targetPort: 5001
-    nodePort: 30001
+    nodePort: 30002
   selector:
     service: udaconnect-person-api
   type: NodePort
