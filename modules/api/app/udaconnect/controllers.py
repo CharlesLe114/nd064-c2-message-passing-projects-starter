@@ -35,15 +35,6 @@ class LocationResource(Resource):
         location: Location = LocationService.retrieve(location_id)
         return location
 
-@api.route("/persons/<person_id>")
-@api.param("person_id", "Unique ID for a given Person", _in="query")
-class PersonResource(Resource):
-    @responds(schema=PersonSchema)
-    def get(self, person_id) -> Person:
-        person: Person = PersonService.retrieve(person_id)
-        return person
-
-
 @api.route("/persons/<person_id>/connection")
 @api.param("start_date", "Lower bound of date range", _in="query")
 @api.param("end_date", "Upper bound of date range", _in="query")
