@@ -32,7 +32,7 @@ class ConnectionService:
         ).all()
 
         # Cache all users in memory for quick lookup
-        req_person = requests('http://localhost:30002/api/persons')
+        req_person = requests.get('http://localhost:30002/api/persons')
         person_map: Dict[str, Person] = {person.id: person for person in req_person.text}
 
         # Prepare arguments for queries
