@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List
 
 from app import db
-from app.udaconnect.models import Connection, Location
+from app.udaconnect.models import Connection, Location, Person
 from app.udaconnect.schemas import ConnectionSchema, LocationSchema
 from geoalchemy2.functions import ST_AsText, ST_Point
 from sqlalchemy.sql import text
@@ -32,7 +32,7 @@ class ConnectionService:
         ).all()
 
         # Cache all users in memory for quick lookup
-        req_person = requests.get('http://localhost:30002/api/persons')
+        req_person = db.session.query(Person).all()
         person_map: Dict[str, Person] = {person.id: person for person in req_person.text}
 
         # Prepare arguments for queries
