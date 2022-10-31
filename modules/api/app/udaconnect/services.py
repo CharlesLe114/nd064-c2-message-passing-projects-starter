@@ -33,7 +33,7 @@ class ConnectionService:
 
         # Cache all users in memory for quick lookup
         req_person = db.session.query(Person).all()
-        person_map: Dict[str, Person] = {person.id: person for person in req_person.text}
+        person_map: Dict[str, Person] = {person.id: person for person in req_person}
 
         # Prepare arguments for queries
         data = []
