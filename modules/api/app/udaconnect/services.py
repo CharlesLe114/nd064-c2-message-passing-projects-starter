@@ -8,6 +8,8 @@ from app.udaconnect.schemas import ConnectionSchema, LocationSchema
 from geoalchemy2.functions import ST_AsText, ST_Point
 from sqlalchemy.sql import text
 
+import requests
+
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger("udaconnect-api")
 
@@ -30,7 +32,8 @@ class ConnectionService:
         ).all()
 
         # Cache all users in memory for quick lookup
-        person_map: Dict[str, Person] = {person.id: person for person in PersonService.retrieve_all()}
+        req_person = requests('http://localhost:30002/api/persons')
+        person_map: Dict[str, Person] = {person.id: person for person in req_person.text}
 
         # Prepare arguments for queries
         data = []
