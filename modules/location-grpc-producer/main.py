@@ -34,9 +34,9 @@ class LocationServicer(locations_pb2_grpc.LocationServiceServicer):
             "creation_time": request.creation_time
         }
 
-        data = json.dumps(request_value)
+        # data = json.dumps(request_value)
         producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
-        producer.send(TOPIC_NAME, value=data)
+        producer.send(TOPIC_NAME, value=request_value)
         producer.flush()
 
         return request_value
