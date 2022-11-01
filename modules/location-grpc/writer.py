@@ -22,3 +22,5 @@ location = items_pb2.LocationMessage(
 
 
 response = stub.Create(location)
+
+print(response)
