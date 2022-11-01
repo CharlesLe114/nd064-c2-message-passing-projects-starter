@@ -19,6 +19,6 @@ message LocationResponse {
   Point coordinate = 3;
 }
 
-service ConnectionService {
+service LocationService {
     rpc Create(LocationMessage) returns (LocationResponse);
 }
