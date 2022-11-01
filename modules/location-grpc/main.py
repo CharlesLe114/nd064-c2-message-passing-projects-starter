@@ -5,6 +5,16 @@ import grpc
 import items_pb2
 import items_pb2_grpc
 
+def response_test(request_value):
+    res = items__pb2.LocationResponse(
+        person_id = request_value["person_id"],
+        creation_time = request_value["creation_time"],
+        coordinate = items__pb2.Point(
+            latitude = request_value["latitude"],
+            longitude = request_value["longitude"]
+        )
+    )
+    return res
 
 class LocationServicer(items_pb2_grpc.LocationServiceServicer):
     def Create(self, request, context):
@@ -17,12 +27,7 @@ class LocationServicer(items_pb2_grpc.LocationServiceServicer):
             "latitude": request.latitude,
             "creation_time": request.creation_time
         }
-        point = items_pb2.Point(latitude=131934, longitude=414837)
-        return_value = {
-            "person_id": request.id,
-            "creation_time": request.creation_time,
-            "coordinate": point
-        }
+        return_value = response_test(request_value)
         return return_value
 
 
