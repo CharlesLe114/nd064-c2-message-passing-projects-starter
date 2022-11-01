@@ -1,6 +1,6 @@
 import grpc
-import items_pb2
-import items_pb2_grpc
+import locations_pb2
+import locations_pb2_grpc
 
 """
 Sample implementation of a writer that can be used to write messages to gRPC.
@@ -9,11 +9,10 @@ Sample implementation of a writer that can be used to write messages to gRPC.
 print("Sending sample payload...")
 
 channel = grpc.insecure_channel("localhost:5005")
-stub = items_pb2_grpc.LocationServiceStub(channel)
+stub = locations_pb2_grpc.LocationServiceStub(channel)
 
 # Update this with desired payload
-location = items_pb2.LocationMessage(
-    id=1,
+location = locations_pb2.LocationMessage(
     person_id=2,
     longitude=1234,
     latitude=1234,
