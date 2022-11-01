@@ -34,15 +34,7 @@ class LocationServicer(locations_pb2_grpc.LocationServiceServicer):
             "creation_time": request.creation_time
         }
 
-        format_time = datetime.fromtimestamp(request.creation_time, timezone.utc) # Process epoch time to datetime
-
-        map_value = {
-            "person_id": request.person_id,
-            "longitude": request.longitude,
-            "latitude": request.latitude,
-            "creation_time": format_time
-        }
-        data = json.dumps(map_value)
+        data = json.dumps(request_value)
         producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
         producer.send(TOPIC_NAME, value=data)
         producer.flush()
