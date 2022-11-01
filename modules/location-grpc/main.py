@@ -6,10 +6,10 @@ import items_pb2
 import items_pb2_grpc
 
 def response_test(request_value):
-    res = items__pb2.LocationResponse(
+    res = items_pb2.LocationResponse(
         person_id = request_value["person_id"],
         creation_time = request_value["creation_time"],
-        coordinate = items__pb2.Point(
+        coordinate = items_pb2.Point(
             latitude = request_value["latitude"],
             longitude = request_value["longitude"]
         )
