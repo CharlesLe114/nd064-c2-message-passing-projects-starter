@@ -10,7 +10,7 @@ from kafka import KafkaProducer
 from datetime import datetime, timezone
 
 TOPIC_NAME = 'location_data'
-KAFKA_SERVER = 'localhost:9092'
+KAFKA_SERVER = "0.0.0.0:9092"
 
 def response_test(request_value):
     res = locations_pb2.LocationResponse(
