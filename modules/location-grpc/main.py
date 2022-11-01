@@ -4,7 +4,7 @@ from items_pb2 import *
 from items_pb2_grpc import *
 
 
-class LocationServicer(items__pb2_grpc.LocationServiceServicer):
+class LocationServicer(items_pb2_grpc.LocationServiceServicer):
     def Create(self, request, context):
         print("Received a message!")
 
