@@ -5,9 +5,14 @@ message LocationMessage {
   int32 person_id= 2;
   string longitude = 3;
   string latitude = 4;
-  int64 creation_time = 4;
+  int64 creation_time = 5;
 }
 
+message LocationResponse {
+  int32 person_id = 1;
+  int64 creation_time = 2;
+  string coordinate = 3;
+}
 service ConnectionService {
-    rpc Create(LocationMessage) returns (ItemMessage);
+    rpc Create(LocationMessage) returns (LocationResponse);
 }
