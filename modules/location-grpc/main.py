@@ -1,7 +1,7 @@
 
 import grpc
-from items_pb2 import *
-from items_pb2_grpc import *
+import items_pb2
+import items_pb2_grpc
 
 
 class LocationServicer(items_pb2_grpc.LocationServiceServicer):
