@@ -34,12 +34,13 @@ class LocationServicer(locations_pb2_grpc.LocationServiceServicer):
             "creation_time": request.creation_time
         }
 
-        # data = json.dumps(request_value)
-        # producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
-        # producer.send(TOPIC_NAME, value=request_value)
-        # producer.flush()
+        data = json.dumps(request_value)
+        producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
+        producer.send(TOPIC_NAME, value=request_value)
+        producer.flush()
 
-        return request_value
+        print(request_value)
+        return locations_pb2.LocationMessage(**request_value)
 
 
 # Initialize gRPC server
