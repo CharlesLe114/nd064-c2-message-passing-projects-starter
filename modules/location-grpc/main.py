@@ -19,9 +19,9 @@ class LocationServicer(items_pb2_grpc.LocationServiceServicer):
         }
         point = items_pb2.Point(latitude=131934, longitude=414837)
         return_value = {
-            "person_id" = request.id,
-            "creation_time" = request.creation_time
-            "coordinate" = point
+            "person_id": request.id,
+            "creation_time": request.creation_time,
+            "coordinate": point
         }
         return return_value
 
