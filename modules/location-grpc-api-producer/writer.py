@@ -8,7 +8,7 @@ Sample implementation of a writer that can be used to write messages to gRPC.
 
 print("Sending sample payload...")
 
-channel = grpc.insecure_channel("localhost:30005")
+channel = grpc.insecure_channel("a20607bd66406412e8e89d8cfff55a6a-278595568.us-east-2.elb.amazonaws.com:5005")
 stub = locations_pb2_grpc.LocationServiceStub(channel)
 
 # Update this with desired payload
