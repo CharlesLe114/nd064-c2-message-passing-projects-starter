@@ -34,7 +34,7 @@ class LocationServicer(locations_pb2_grpc.LocationServiceServicer):
             "creation_time": request.creation_time
         }
 
-        data = json.dumps(request_value)
+        data = json.dumps(request_value).encode('utf-8') # convert dict to string -> match with kafka requirement
         producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
         producer.send(TOPIC_NAME, value=data)
         producer.flush()
