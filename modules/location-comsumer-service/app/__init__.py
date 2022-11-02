@@ -34,7 +34,7 @@ def create_app(env=None):
 
     CORS(app)  # Set CORS for development
 
-    # register_routes(api, app)
+    register_routes(api, app)
     db.init_app(app)
 
     consumer = KafkaConsumer(TOPIC_NAME,bootstrap_servers=KAFKA_SERVER)
