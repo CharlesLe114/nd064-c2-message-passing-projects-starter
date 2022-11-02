@@ -1,4 +1,5 @@
 from kafka import KafkaProducer
+import json
 
 
 TOPIC_NAME = 'items'
