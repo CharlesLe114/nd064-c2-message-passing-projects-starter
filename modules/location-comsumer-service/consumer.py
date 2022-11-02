@@ -37,14 +37,16 @@ Session = scoped_session(sessionmaker(bind=engine))
 session = Session()
 logging.basicConfig(level=logging.WARNING)
 
+TOPIC_NAME = 'location_data'
+KAFKA_SERVER = "my-release-kafka-0.my-release-kafka-headless.default.svc.cluster.local:9092"
 
 class ConsumerService:
     @staticmethod
     def consume():
         # set up kafka consumer to put into database
         consumer = KafkaConsumer(
-            'connections',
-            bootstrap_servers='my-release-kafka-0.my-release-kafka-headless.default.svc.cluster.local:9092',
+            TOPIC_NAME,
+            bootstrap_servers=KAFKA_SERVER,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
             )
         for message in consumer:
