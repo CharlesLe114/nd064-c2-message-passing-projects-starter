@@ -14,7 +14,7 @@ request_value = {
     "creation_time": 1667295256
 }
 
-data = json.dumps(request_value)
+data = json.dumps(request_value).encode('utf-8')
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 producer.send(TOPIC_NAME, value=data)
 producer.flush()
