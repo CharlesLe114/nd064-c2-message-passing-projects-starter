@@ -22,7 +22,7 @@ class Connection extends Component {
     if (personId) {
       // TODO: endpoint should be abstracted into a config variable
       fetch(
-        `http://udaconnect-connection-api.default.svc.cluster.local:5002/api/persons/${personId}/connection?start_date=2020-01-01&end_date=2020-12-30&distance=5`
+        `http://adedb386ed03b4e92967fe7c0b719cb6-1067276569.us-east-2.elb.amazonaws.com:5002/api/persons/${personId}/connection?start_date=2020-01-01&end_date=2020-12-30&distance=5`
       )
         .then((response) => response.json())
         .then((connections) =>
