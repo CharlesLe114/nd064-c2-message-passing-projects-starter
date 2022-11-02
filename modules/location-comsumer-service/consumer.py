@@ -53,7 +53,7 @@ class ConsumerService:
             new_location = Location()
             new_location.person_id = location["person_id"]
             new_location.creation_time = datetime.fromtimestamp( location["creation_time"] )
-            new_location.coordinate = ST_Point(location["latitude"], location["longitude"])    - ST_Point undefined
+            new_location.coordinate = ST_Point(location["latitude"], location["longitude"])    #- ST_Point undefined
             # new_location.coordinate = "010100000097FDBAD39D925EC0D00A0C59DDC64240"
             print(new_location, "is the location transmitted by kafka")
             # session.add(new_location)
