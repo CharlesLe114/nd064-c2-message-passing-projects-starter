@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "51dff5b9-369c-412c-aeab-029b5541411d",
+		"name": "UdaConnect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17249754"
+	},
+	"item": [
+		{
+			"name": "Retrieve all person",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "aa17dc367e8764769ba2ab28b35994f8-318390327.us-east-2.elb.amazonaws.com:5001/api/persons",
+					"host": [
+						"aa17dc367e8764769ba2ab28b35994f8-318390327",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve person info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "aa17dc367e8764769ba2ab28b35994f8-318390327.us-east-2.elb.amazonaws.com:5001/api/persons/{{person-id}}",
+					"host": [
+						"aa17dc367e8764769ba2ab28b35994f8-318390327",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"persons",
+						"{{person-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve connection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://aa7a2245de7e74e9bb0ab4d511040c11-1856909811.us-east-2.elb.amazonaws.com:5002/api/persons/{{person-id}}/connection?start_date=2020-01-01&end_date=2020-12-30&distance=5",
+					"protocol": "http",
+					"host": [
+						"aa7a2245de7e74e9bb0ab4d511040c11-1856909811",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "5002",
+					"path": [
+						"api",
+						"persons",
+						"{{person-id}}",
+						"connection"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2020-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2020-12-30"
+						},
+						{
+							"key": "distance",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Toan\",\n    \"last_name\": \"Le\",\n    \"company_name\": \"FPT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "aa17dc367e8764769ba2ab28b35994f8-318390327.us-east-2.elb.amazonaws.com:5001/api/persons",
+					"host": [
+						"aa17dc367e8764769ba2ab28b35994f8-318390327",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "person-id",
+			"value": "1"
+		}
+	]
+}
