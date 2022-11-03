@@ -1,0 +1,7 @@
+- Whole monolithic app is divided into 3 main services: Person service, Connection service and Location service.
+- Person service contains logic for Person route - retrieve_all(), retrieve() and create(), all of these function can be executed via REST API call.
+- Connection service contains logic for Connection route - find_contacts().
+- Location service is divided into 2 sub-service - location producer and location consumer.
+    - location producer has a gRPC channel listening for data ingestion, which help reduce execution time and ensure data are ingested in correct format. 
+      Then those info is pushed to kafka and will be stored in a topic. Kafka will be a good candidate when the location data are ingested massively.
+    - location consumer will consume data in above mentioned kafka topic, process the received payload and ingest data into db.

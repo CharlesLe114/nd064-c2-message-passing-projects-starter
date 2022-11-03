@@ -1,0 +1,9 @@
+- The application currently hosted on an EKS cluster, so that the gRPC channel is exposed via a load balancer at port 5005.
+- Necessary files to send a sample data are stored in gRPC-sample folder.
+- The sample request is sent via a python app, so that Python is required.
+- Steps to send sample request to gRPC channel, all these steps are conducted in gRPC-sample folder.
+    + Step 1: update `channel` variable to correct endpoint, in this case: a36fc631cc1834f858411983c81682a3-113773644.us-east-2.elb.amazonaws.com
+    + Step 2: Run `python3 -m pip install -r requirements.txt`
+    + Step 3: Run `python3 write.py`
+    The results is similar to below if the request is successfully made
+    
