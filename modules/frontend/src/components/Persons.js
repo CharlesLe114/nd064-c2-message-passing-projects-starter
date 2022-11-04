@@ -4,7 +4,6 @@ import Connection from "./Connection";
 class Persons extends Component {
   constructor(props) {
     super(props);
-    // TODO: endpoint should be abstracted into a config variable
     this.endpoint_url = `http://a196d69969f74417a936dd25f846f82a-773098819.us-east-2.elb.amazonaws.com:5001/api/persons`;
     this.state = {
       persons: [],
